@@ -1,0 +1,6 @@
+{
+    "require": {
+        "predis/predis": "^1.1",
+        "barryvdh/laravel-debugbar": "^2.4"
+    }
+}
