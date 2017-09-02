@@ -16,13 +16,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
-
+//route user
 Route::group(['middleware' => 'auth'], function () { 
-//admin
-Route::get('admin/home', 'AdminController@home')->name('admin/home');
-Route::get('admin/index', 'UserController@index')->name('admin/index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 });
 
+//route admin
+Route::group(['middleware' => 'admin'], function () { 
+Route::get('admin/index', 'UserController@index')->name('admin/index');
+Route::get('admin/home', 'AdminController@home')->name('admin/home');
+});
