@@ -8,13 +8,12 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                <h3>Subscribe Email</h3>
+                <form action="mailist" method="post">
+                {{ csrf_field() }}
+                    <input type="checkbox" name="mailist" @if($subscribe) checked @endif value="subscribe"> Subscribe Mailist<br>
+                    <input type="submit"  value="submit">
+                </form>
                 </div>
             </div>
         </div>
