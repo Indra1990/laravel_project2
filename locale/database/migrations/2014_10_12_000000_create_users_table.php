@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('role')->default(1);
             $table->tinyInteger('mailist')->default(0);
             $table->tinyInteger('status')->default(0);
-            $table->string('token')->default(0);
+            $table->string('token');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
