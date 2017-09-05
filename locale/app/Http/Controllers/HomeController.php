@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
-    private $api_key = 'key-51e07bea59eac5a177a3c8e81e478a77';
+    private $api_key = 'key-101ad550faac443a8f94137867b344b8';
 
     /**
      * Create a new controller instance.
@@ -51,14 +51,14 @@ class HomeController extends Controller
             $user->mailist = 1;
             $user->save();
 
-            $res = $client->get('https://api.mailgun.net/v3/lists/pages', [
+            $res = $client->get('https://api.mailgun.net/v3/lists/ ', [
                     'auth' => [
                         'api' , $this->api_key
                     ]
                 ]);
-            $res->setDefaultOption('verify', false);
+            //$res->setDefaultOption('verify', false);
 
-            dd($res->getBody());
+            $res->getBody()->getContents();
         }
         // unsubscribe
         if($request->mailist != 'subscribe' && $subscribe == 1){
